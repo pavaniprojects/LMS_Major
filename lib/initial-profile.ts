@@ -8,7 +8,7 @@ export const initialProfile = async () => {
     if (!user) {
         return redirectToSignIn();
     }   
-
+    // @ts-ignore: Unreachable code error
     let userWithRole = await db.user.findUnique({
         where: {
             id: user.id
@@ -31,6 +31,7 @@ export const initialProfile = async () => {
     }
 
     if (!profile) {
+        // @ts-ignore: Unreachable code error
         profile = await db.profile.create({
             data: { 
                 userId: user.id,
